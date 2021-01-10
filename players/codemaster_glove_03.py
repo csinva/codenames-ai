@@ -46,6 +46,7 @@ class AICodemaster(Codemaster):
         all_vectors = (self.glove_vecs,)
         bests = {}
 
+        # compute all the dists
         if not self.bad_word_dists:
             self.bad_word_dists = {}
             for word in bad_words:
@@ -69,6 +70,7 @@ class AICodemaster(Codemaster):
             for word in to_remove:
                 del self.red_word_dists[word]
 
+        # loop over number to clue
         for clue_num in range(1, 3 + 1):
             best_per_dist = np.inf
             best_per = ''
